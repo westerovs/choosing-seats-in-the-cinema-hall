@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: gray;
+}
+
+
+
+.countdown__buy-seats-plan {
+  top: 70px;
+  left: 250px;
+  opacity: 1;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.countdown__buy-seats-plan-screen-title {
+  position: absolute;
+  left: 55px;
+  right: 55px;
+  bottom: 100%;
+  margin-bottom: 27px;
+  border-bottom: 1px solid rgba(226, 226, 226, 0.5);
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2;
+  color: #E2E2E2;
+}
+
+.countdown__buy-seats-plan-row-title {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  margin-right: 28px;
+  border-right: 1px solid rgba(226, 226, 226, 0.5);
+  height: 100%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  color: #E2E2E2;
+}
+
+.countdown__buy-seats-plan-row-title::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-right: 10px;
+  transform: rotate(-90deg);
+}
+
+.countdown__buy-seats-plan-seats-title {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  margin-top: 29px;
+  border-top: 1px solid rgba(226, 226, 226, 0.5);
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2;
+  color: #E2E2E2;
+}
+
+.countdown__buy-seats-plan-inner {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-gap: 3px;
+  counter-reset: rowIndex columnIndex;
+}
+
+.countdown__buy-seats-plan-item {
+  box-sizing: border-box;
+  position: relative;
+  border: 0.5px solid rgba(226, 226, 226, 0.5);
+  width: 25px;
+  height: 27px;
+  background: url('./img/seat-item.png') 50% 50% no-repeat;
+}
+
+.countdown__buy-seats-plan-item:nth-child(16n + 1)::before {
+  counter-increment: rowIndex;
+  content: counter(rowIndex);
+  position: absolute;
+  top: 0;
+  left: -28px;
+  width: 28px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 27px;
+  color: #E2E2E2;
+}
+
+.countdown__buy-seats-plan-item:nth-child(n + 145)::after {
+  counter-increment: columnIndex;
+  content: counter(columnIndex);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 25px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 29px;
+  color: #E2E2E2;
+}
+
+.b-container__backdrop {
+  position: absolute;
+  left: 0;
+  bottom: -50%;
+  width: 100%;
+  height: 50%;
+  background: rgba(95, 95, 95, 0.3);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity .5s;
+}
